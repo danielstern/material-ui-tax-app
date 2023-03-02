@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import {
   Box,
-  Input,
   MenuItem,
   Select,
   InputLabel,
@@ -22,7 +20,11 @@ import axios from 'axios'
 import './App.css'
 
 async function loadData(year, setData) {
-  while (true) {
+  /**
+   * Apparently, one should prefer this puzzling for loop over while(true) 🤷
+   * https://eslint.org/docs/latest/rules/no-constant-condition
+   */
+  for (;;) {
     console.info("Attempting to establish connection with server...")
     try {
       setData(null)
@@ -99,7 +101,7 @@ function App() {
           Tax Whisperer
         </h1>
         <h2>
-          The Code Whisperer's Official Tax Calculation App
+          The Code Whisperer Official Tax Calculation App
         </h2>
         <form style={{ marginBottom: 24 }}>
           <FormControl>

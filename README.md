@@ -20,4 +20,15 @@ npm run dev
 
 4. Open your web browser to the URL displayed in the terminal.
 
+## Running the Linter
+
+To run ESLint, type
+
+```
+npm run lint
+```
+
 ## Navigating the Project
+
+**This project only deviates from the vanilla Vite-React-JS template within the file:**
+- `src/App.jsx`

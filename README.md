@@ -1,4 +1,5 @@
 # Code Whisperer's Tax App
+![image](https://user-images.githubusercontent.com/4268152/222445790-389fcc04-0b95-49e6-8e52-29f5743f9a57.png)
 
 ## Usage
 1. Install dependencis

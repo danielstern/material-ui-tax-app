@@ -18,6 +18,7 @@ import {
 import delay from 'delay'
 import axios from 'axios'
 import './App.css'
+import { calculateBracketPayable } from './logic'
 
 async function loadData(year, setData) {
   /**
@@ -30,7 +31,6 @@ async function loadData(year, setData) {
       setData(null)
       const { data } = await axios.get(`http://localhost:5000/tax-calculator/brackets/${year}`)
       const { tax_brackets } = data
-      console.table(tax_brackets)
       setData(tax_brackets)
       return
     } catch (e) {
@@ -40,23 +40,9 @@ async function loadData(year, setData) {
   }
 }
 
-function calculateBracketTaxable(salary, min, max) {
-  if (salary < min) return 0
-  if (salary >= max) return max - min
-  return salary - min
-}
-
-function calculateBracketPayable(salary, min, max, rate) {
-  return calculateBracketTaxable(salary, min, max) * +rate
-}
-
 const currency = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
-
-  // These options are needed to round to whole numbers if that's what you want.
-  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
 function App() {
@@ -130,7 +116,6 @@ function App() {
         {data && <Box>
           <TableContainer component={Paper}>
             <Table>
-
               <TableHead>
                 <TableRow>
                   <TableCell>

@@ -28,7 +28,16 @@ To run ESLint, type
 npm run lint
 ```
 
+## Running Tests
+
+To run test files located in `src/logic.spec.js` run 
+```
+npm test
+```
+
 ## Navigating the Project
 
 **This project only deviates from the vanilla Vite-React-JS template within the file:**
 - `src/App.jsx`
+- `src/logic.js`
+- `src/logic.spec.js`
